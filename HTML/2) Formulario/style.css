@@ -1,0 +1,42 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: content-box;
+  font-family: "Nunito";
+}
+
+h1 {
+  margin: 20px;
+  font-size: 26px;
+  text-align: center;
+}
+
+form {
+  margin: auto;
+  width: 300px;
+}
+
+label,
+p {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px;
+}
+
+div label {
+  display: inline;
+}
+
+div + label {
+  display: block;
+}
+
+select {
+  font-size: 15px;
+  padding-inline: 5px;
+}
+
+label + input {
+  margin-inline: 10px;
+  padding: 5px 10px;
+}

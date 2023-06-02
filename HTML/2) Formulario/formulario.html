@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mi Formulario</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <h1>Mi Formulario de Registro</h1>
+
+  <form>
+    <label>
+      Nombre: <input type="text" name="name">
+    </label>
+
+    <label>
+      Apellido: <input type="text" name="lastname">
+    </label>
+
+    <label>
+      Email: <input type="email" name="email">
+    </label>
+
+    <label>
+      Contraseña: <input type="password" name="password">
+    </label>
+
+    <label>
+      Confirmar: <input type="password" name="c_password">
+    </label>
+
+    <label>
+      Cumpleaños <input type="date" name="birthday">
+    </label>
+
+    <p>Selecciona tu género:</p>
+    <div>
+      <label>
+        <input type="radio" name="gender" value="man"> Hombre
+      </label><label>
+        <input type="radio" name="gender" value="woman"> Mujer
+      </label><label>
+        <input type="radio" name="gender" value="other"> Otro
+      </label>
+    </div>
+
+    <label>
+      Una breve descripción de ti:
+      <textarea name="description" cols="37" rows="5"></textarea>
+    </label>
+
+    <label>
+      Lenguaje Favorito:
+      <select name="language">
+        <option value="javascript">Javascript</option>
+        <option value="python">Python</option>
+        <option value="java">Java</option>
+        <option value="c">C</option>
+      </select>
+    </label>
+
+    <input type="submit" value="Enviar">
+  </form>
+</body>
+
+</html>
