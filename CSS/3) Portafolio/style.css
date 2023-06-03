@@ -5,6 +5,38 @@
   font-family: sans-serif;
 }
 
+a {
+  color: black;
+}
+
+header {
+  padding: 20px 30px;
+}
+
 h1 {
   font-family: "Comic Sans MS", sans-serif;
+  display: inline-block;
+}
+
+h2 {
+  display: inline-block;
+  position: absolute;
+  top: 30px;
+  right: 30px;
+}
+
+footer {
+  text-align: center;
+  padding: 10px;
+}
+
+footer p {
+  margin-bottom: 15px;
+}
+
+footer img {
+  width: 20px;
+  height: 20px;
+  vertical-align: bottom;
+  margin-inline: 3px;
 }
