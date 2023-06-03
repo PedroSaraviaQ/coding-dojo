@@ -5,6 +5,11 @@
   font-family: sans-serif;
 }
 
+body {
+  position: relative;
+  width: 1300px;
+}
+
 a {
   color: black;
 }
@@ -23,6 +28,11 @@ h2 {
   position: absolute;
   top: 30px;
   right: 30px;
+}
+
+main {
+  background-image: radial-gradient(#6f5964, #6f5964, #1e0e12);
+  min-height: 1000px; /** ...... borrar .......*/
 }
 
 footer {
