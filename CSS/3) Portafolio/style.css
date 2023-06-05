@@ -58,7 +58,8 @@ main {
   vertical-align: top;
 }
 
-.description h3 {
+h3,
+h4 {
   font-size: 24px;
   padding: 15px;
   background-image: linear-gradient(to top, #b2b2b6, #878593, #b2b2b6);
@@ -72,6 +73,57 @@ main {
 .description a {
   display: block;
   margin: 25px 15px;
+}
+
+article:nth-of-type(2),
+article:nth-of-type(3) {
+  margin-right: 30px;
+}
+
+.project {
+  display: inline-block;
+  width: 314px;
+  background-image: linear-gradient(to right, white, #dacbd9);
+  margin-top: 30px;
+  vertical-align: top;
+}
+
+.project > img {
+  width: 314px;
+}
+
+.project p {
+  padding: 10px;
+  text-align: justify;
+  height: 180px;
+}
+
+.project h4 {
+  font-size: 18px;
+}
+
+.technology {
+  width: 40px;
+  height: auto;
+  margin: 8px;
+}
+
+img.technology:nth-of-type(1) {
+  margin: 16px 8px 8px 16px;
+}
+
+img.technology:nth-of-type(2),
+img.technology:nth-of-type(3),
+img.technology:nth-of-type(4) {
+  margin: 16px 8px 8px 8px;
+}
+
+img.technology:nth-of-type(5) {
+  margin: 8px 16px 8px 8px;
+}
+
+img.technology:nth-of-type(6) {
+  margin: 8px 8px 8px 16px;
 }
 
 footer {
