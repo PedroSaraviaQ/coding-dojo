@@ -5,9 +5,15 @@
   font-family: sans-serif;
 }
 
+html {
+  background-image: url("img/css.png");
+  background-size: 50px;
+  background-position: 0px 25px;
+}
+
 body {
   position: relative;
-  width: 1300px;
+  width: 1075px;
 }
 
 a {
@@ -15,6 +21,7 @@ a {
 }
 
 header {
+  background-color: #fff;
   padding: 20px 30px;
 }
 
@@ -32,10 +39,43 @@ h2 {
 
 main {
   background-image: radial-gradient(#6f5964, #6f5964, #1e0e12);
+  padding: 30px;
   min-height: 1000px; /** ...... borrar .......*/
 }
 
+#me {
+  height: 310px;
+  width: auto;
+  border: 5px solid #c0c0c0;
+  margin-right: 30px;
+}
+
+.description {
+  display: inline-block;
+  height: 320px;
+  width: 495px;
+  background-image: linear-gradient(to right, white, #dacbd9);
+  vertical-align: top;
+}
+
+.description h3 {
+  font-size: 24px;
+  padding: 15px;
+  background-image: linear-gradient(to top, #b2b2b6, #878593, #b2b2b6);
+  color: white;
+}
+
+.description p {
+  margin: 20px 15px;
+}
+
+.description a {
+  display: block;
+  margin: 25px 15px;
+}
+
 footer {
+  background-color: #fff;
   text-align: center;
   padding: 10px;
 }
