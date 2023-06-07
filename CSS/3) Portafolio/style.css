@@ -21,7 +21,7 @@ a {
 }
 
 header {
-  background-color: #fff;
+  background-image: linear-gradient(#f1f1f1, white);
   padding: 20px 30px;
 }
 
@@ -40,7 +40,6 @@ h2 {
 main {
   background-image: radial-gradient(#6f5964, #6f5964, #1e0e12);
   padding: 30px;
-  min-height: 1000px; /** ...... borrar .......*/
 }
 
 #me {
@@ -126,8 +125,19 @@ img.technology:nth-of-type(6) {
   margin: 8px 8px 8px 16px;
 }
 
+.project button {
+  display: block;
+  background-color: #407d61;
+  border: 1.5px solid #1b402f;
+  border-radius: 7px;
+  color: white;
+  font-weight: bold;
+  padding: 5px 4px;
+  margin: 10px auto 20px;
+}
+
 footer {
-  background-color: #fff;
+  background-image: linear-gradient(white, #f1f1f1);
   text-align: center;
   padding: 10px;
 }
