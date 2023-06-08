@@ -28,7 +28,7 @@ header > div {
 
 form p {
   display: inline-block;
-  margin-left: 87px;
+  margin-left: 90px;
 }
 
 form span {
@@ -38,7 +38,6 @@ form span {
 label {
   color: #f9d030;
   text-decoration: underline;
-  margin-inline: 4px;
   cursor: pointer;
 }
 
@@ -65,4 +64,25 @@ form button {
   background-color: #245076;
   color: white;
   border-radius: 5px;
+}
+
+nav {
+  margin: 10px auto;
+  width: 950px;
+  background-color: #457dad;
+  padding: 15px 40px;
+  border-radius: 8px;
+  box-shadow: 3px 3px 5px black;
+  font-size: 24px;
+}
+
+nav ul {
+  display: flex;
+  list-style-type: none;
+  justify-content: space-around;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
 }
