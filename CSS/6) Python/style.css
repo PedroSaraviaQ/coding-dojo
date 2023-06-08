@@ -164,3 +164,34 @@ main ul {
   list-style-type: square;
   margin-top: 15px;
 }
+
+main li {
+  margin: 5px 0;
+}
+
+footer {
+  background-image: linear-gradient(#245177, #3274ac);
+  padding-top: 70px;
+  padding-bottom: 10px;
+}
+
+footer ul {
+  display: flex;
+  list-style-type: none;
+  margin: auto;
+  width: 720px;
+  justify-content: space-between;
+}
+
+footer a {
+  color: #87b9e5;
+  text-decoration: none;
+  font-size: 20px;
+}
+
+footer p {
+  color: #87b9e5;
+  text-align: center;
+  margin-top: 20px;
+  font-size: 12px;
+}
