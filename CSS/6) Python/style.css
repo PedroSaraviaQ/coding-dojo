@@ -1,0 +1,68 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: content-box;
+}
+
+body {
+  width: 1200px;
+  font-family: sans-serif;
+}
+
+header {
+  background-color: #245076;
+  color: white;
+}
+
+header > div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 30px;
+}
+
+#logo {
+  height: 80px;
+  width: auto;
+}
+
+form p {
+  display: inline-block;
+  margin-left: 87px;
+}
+
+form span {
+  color: black;
+}
+
+label {
+  color: #f9d030;
+  text-decoration: underline;
+  margin-inline: 4px;
+  cursor: pointer;
+}
+
+input[type="radio"] {
+  display: none;
+}
+
+form div {
+  background-color: #444444;
+  padding: 12px 40px;
+  margin-top: 5px;
+  border-radius: 10px;
+  box-shadow: 1px 1px black;
+}
+
+input[type="text"] {
+  padding: 7px;
+  text-align: center;
+}
+
+form button {
+  margin-left: 3px;
+  padding: 5px 8px;
+  background-color: #245076;
+  color: white;
+  border-radius: 5px;
+}
