@@ -4,6 +4,12 @@
   box-sizing: content-box;
 }
 
+html {
+  background-image: url("img/python-bg.png");
+  background-size: 75px;
+  background-position: 37px 37px;
+}
+
 body {
   width: 1200px;
   font-family: sans-serif;
@@ -12,6 +18,7 @@ body {
 header {
   background-color: #245076;
   color: white;
+  box-shadow: inset 0px -3px 5px black;
 }
 
 header > div {
@@ -127,4 +134,33 @@ nav a {
 .message + p {
   font-size: 18px;
   margin: 20px;
+}
+
+main {
+  background-color: white;
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 120px;
+  text-align: center;
+}
+
+main article {
+  width: 340px;
+  border-top: 5px solid #73a7d5;
+  padding: 0 60px;
+}
+
+main h2 {
+  margin: 10px 0;
+  font-weight: normal;
+}
+
+main a {
+  text-decoration: none;
+  color: #73a7d5;
+}
+
+main ul {
+  list-style-type: square;
+  margin-top: 15px;
 }
