@@ -86,3 +86,45 @@ nav a {
   color: white;
   text-decoration: none;
 }
+
+#information {
+  list-style-type: none;
+  text-align: center;
+  font-size: 18px;
+  margin-left: 100px;
+  align-self: self-start;
+  margin-top: 10px;
+}
+
+#information li {
+  margin: 12px 0;
+}
+
+#information li::before {
+  content: "\00BB";
+  color: #f9d030;
+  margin-right: 5px;
+}
+
+#information a {
+  color: white;
+}
+
+#information + div {
+  width: 670px;
+  margin-right: 90px;
+  text-align: center;
+}
+
+.message {
+  display: block;
+  color: #f9d030;
+  font-style: italic;
+  font-size: 22px;
+  margin: 15px;
+}
+
+.message + p {
+  font-size: 18px;
+  margin: 20px;
+}
