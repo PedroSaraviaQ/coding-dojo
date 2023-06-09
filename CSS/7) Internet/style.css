@@ -1,7 +1,7 @@
 * {
   margin: 0;
   padding: 0;
-  box-sizing: content-box;
+  box-sizing: border-box;
 }
 
 body {
@@ -28,7 +28,8 @@ header h1 {
   color: #474747;
 }
 
-header span {
+header span,
+.sidebar p span {
   color: #22659e;
 }
 
@@ -38,4 +39,72 @@ header h2 {
   padding: 15px 20px;
   font-weight: normal;
   font-size: 32px;
+}
+
+main {
+  background-image: linear-gradient(#e3e3e3, white);
+}
+
+.sidebar {
+  width: 240px;
+  padding: 30px 5px;
+}
+
+.sidebar h3 span {
+  color: red;
+}
+
+.sidebar > p {
+  font-weight: bold;
+  margin: 20px 0;
+}
+
+.sidebar-btn {
+  width: 100%;
+  color: white;
+  font-size: 18px;
+  border-radius: 5px;
+  margin-bottom: 5px;
+  border: none;
+  cursor: pointer;
+  box-shadow: 1px 1px 3px black;
+}
+
+.sidebar > button {
+  height: 40px;
+}
+
+.sidebar > button:nth-of-type(1) {
+  background-image: linear-gradient(#6499c4, #24669f);
+}
+
+.sidebar > button:nth-of-type(2) {
+  background-image: linear-gradient(#eaac55, #ef7400);
+}
+
+.sidebar hr {
+  margin: 25px 0;
+}
+
+.ad {
+  background-image: url("img/bg-ad.png");
+  color: white;
+  padding: 25px 20px;
+}
+
+.ad p {
+  font-size: 26px;
+  text-align: center;
+}
+
+.ad img {
+  height: 130px;
+  margin: auto;
+  display: block;
+}
+
+.ad button {
+  background-image: linear-gradient(#78d0df, #00c1df);
+  height: 35px;
+  margin: 20px 0 10px;
 }
