@@ -3,3 +3,39 @@
   padding: 0;
   box-sizing: content-box;
 }
+
+body {
+  width: 970px;
+  margin: auto;
+  font-family: sans-serif;
+}
+
+header div {
+  position: relative;
+}
+
+header img {
+  position: absolute;
+  width: 90px;
+  top: 8px;
+  left: 7px;
+}
+
+header h1 {
+  padding: 20px 0 5px 100px;
+  font-weight: normal;
+  font-size: 48px;
+  color: #474747;
+}
+
+header span {
+  color: #22659e;
+}
+
+header h2 {
+  color: white;
+  background-image: linear-gradient(#24669f, #5283ac, #24669f);
+  padding: 15px 20px;
+  font-weight: normal;
+  font-size: 32px;
+}
