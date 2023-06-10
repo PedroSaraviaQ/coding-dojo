@@ -4,6 +4,10 @@
   box-sizing: border-box;
 }
 
+a {
+  text-decoration: none;
+}
+
 body {
   width: 970px;
   margin: auto;
@@ -43,6 +47,8 @@ header h2 {
 
 main {
   background-image: linear-gradient(#e3e3e3, white);
+  display: flex;
+  gap: 45px;
 }
 
 .sidebar {
@@ -107,4 +113,43 @@ main {
   background-image: linear-gradient(#78d0df, #00c1df);
   height: 35px;
   margin: 20px 0 10px;
+}
+
+.content {
+  width: 684px;
+  padding-right: 20px;
+}
+
+.main-top {
+  display: flex;
+  justify-content: space-between;
+  margin: 15px 0;
+}
+
+.home {
+  color: #23669f;
+  font-size: 18px;
+}
+
+.home img {
+  height: 20px;
+  margin-bottom: -1px;
+}
+
+.contact {
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  text-align: right;
+  gap: 12px;
+}
+
+.contact img {
+  height: 50px;
+}
+
+.contact .number {
+  color: #00c0df;
+  font-size: 30px;
+  font-weight: bold;
 }
