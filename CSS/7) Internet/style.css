@@ -153,3 +153,26 @@ main {
   font-size: 30px;
   font-weight: bold;
 }
+
+main h3 {
+  color: #22659e;
+  margin: 7px 0;
+  font-size: 20px;
+}
+
+main a {
+  color: #079ab0;
+}
+
+main ul {
+  margin-left: 45px;
+}
+
+main li {
+  margin: 8px 0;
+}
+
+.req-res {
+  display: block;
+  margin: 20px auto;
+}
