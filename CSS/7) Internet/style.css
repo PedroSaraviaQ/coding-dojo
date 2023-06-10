@@ -164,7 +164,8 @@ main a {
   color: #079ab0;
 }
 
-main ul {
+main ul,
+main ol {
   margin-left: 45px;
 }
 
@@ -175,4 +176,20 @@ main li {
 .req-res {
   display: block;
   margin: 20px auto;
+}
+
+article {
+  display: flex;
+  border: 5px solid #0085e0;
+  padding: 15px;
+  margin: 25px 0;
+  gap: 20px;
+}
+
+article img {
+  height: 140px;
+}
+
+article p {
+  margin: 15px 0;
 }
