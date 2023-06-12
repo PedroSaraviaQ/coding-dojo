@@ -1,0 +1,12 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+main h1 {
+  font-family: sans-serif;
+}
+main pre {
+  border: 1px solid green;
+  width: 200px;
+}
