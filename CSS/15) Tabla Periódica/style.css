@@ -6,6 +6,34 @@
 
 body {
   font-family: sans-serif;
+  text-align: center;
+  color: #f00;
+  display: flex;
+  align-items: start;
+  flex-wrap: wrap;
+  width: 1290px;
+}
+
+.horizontal {
+  width: 1290px;
+  display: flex;
+  gap: 15px
+}
+
+.horizontal span {
+  display: inline-block;
+  width: 67px;
+  padding: 10px;
+}
+
+.part-1,
+.part-2 {
+  display: flex;
+}
+
+.vertical p {
+  padding: 24.5px;
+  width: 67px;
 }
 
 .group {
@@ -17,9 +45,10 @@ body {
 
 .group div {
   border: 2px solid #848484;
-  text-align: center;
   width: 65px;
+  height: 66px;
   font-size: 15px;
+  color: #000
 }
 
 .group .symbol {
@@ -50,6 +79,7 @@ body {
 }
 
 .red {
+  margin: 204px 2px 0 20px;
   width: 668px;
 }
 
@@ -57,8 +87,16 @@ body {
   background: #fd9a98;
 }
 
+.note p {
+  width: 156px;
+  display: flex;
+  justify-content: space-between;
+  margin: 45px 3px 45px 60px;
+}
+
 .green {
   width: 936px;
+  margin-top: 20px;
 }
 
 .green div {
