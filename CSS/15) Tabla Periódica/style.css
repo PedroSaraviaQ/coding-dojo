@@ -1,0 +1,66 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: sans-serif;
+}
+
+.group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2px;
+  align-items: end;
+}
+
+.group div {
+  border: 2px solid #848484;
+  text-align: center;
+  width: 65px;
+  font-size: 15px;
+}
+
+.group .symbol {
+  color: #1913a2;
+  font-weight: bold;
+  font-size: 20px;
+  margin: 2px;
+}
+
+.inv {
+  visibility: hidden;
+}
+
+.blue {
+  width: 132px;
+}
+
+.blue div {
+  background: #689bff;
+}
+
+.yellow {
+  width: 400px;
+}
+
+.yellow div {
+  background: #fecb00;
+}
+
+.red {
+  width: 668px;
+}
+
+.red div {
+  background: #fd9a98;
+}
+
+.green {
+  width: 936px;
+}
+
+.green div {
+  background: #1fca21;
+}
