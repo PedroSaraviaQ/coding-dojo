@@ -1,15 +1,18 @@
+/* CSS Reset */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+/* Global Styles */
 body {
   font-family: sans-serif;
   width: 1200px;
-  color: #404b52
+  color: #404b52;
 }
 
+/* Header Styles */
 header {
   background-image: linear-gradient(#f0efed, #dfdcd6);
   padding: 8px 20px;
@@ -40,6 +43,7 @@ header form {
   margin-right: 10px;
 }
 
+/* Common Styles */
 button {
   cursor: pointer;
 }
@@ -60,7 +64,7 @@ input {
 .info {
   display: flex;
   list-style: none;
-  justify-content: end;
+  justify-content: flex-end;
   text-shadow: 1px 0px white;
 }
 
@@ -77,6 +81,7 @@ a {
   margin: 10px;
 }
 
+/* Banner Styles */
 .banner {
   background-image: url("img/group.png"), linear-gradient(#2b5e96, #173353);
   background-repeat: no-repeat;
@@ -151,6 +156,7 @@ a {
   color: white;
 }
 
+/* Posts Styles */
 #posts {
   background: #1f446d;
 }
@@ -184,6 +190,7 @@ a {
   margin-bottom: 5px;
 }
 
+/* Footer Styles */
 footer {
   background: linear-gradient(#e6e3dd, #cfc9c0);
   display: flex;
