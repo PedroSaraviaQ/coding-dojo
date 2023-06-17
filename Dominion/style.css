@@ -7,6 +7,7 @@
 body {
   font-family: sans-serif;
   width: 1200px;
+  color: #404b52
 }
 
 header {
@@ -63,14 +64,50 @@ input {
   text-shadow: 1px 0px white;
 }
 
-.info a {
+a {
   text-decoration: none;
+}
+
+.info a {
   color: #000;
 }
 
 .info span {
   color: gray;
   margin: 10px;
+}
+
+#posts {
+  background: #1f446d;
+}
+
+#posts h2 {
+  background: #d4dbe3;
+  font-size: 18px;
+  padding: 10px 20px;
+}
+
+#posts .container {
+  display: flex;
+  padding: 20px 30px;
+  gap: 20px;
+}
+
+#posts article {
+  background: #fff;
+  display: flex;
+  padding: 15px;
+  gap: 20px;
+  font-size: 15px;
+}
+
+#posts img {
+  height: 100px;
+  width: 100px;
+}
+
+#posts h3 {
+  margin-bottom: 5px;
 }
 
 footer {
