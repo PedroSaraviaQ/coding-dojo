@@ -12,7 +12,7 @@ body {
 
 header {
   background-image: linear-gradient(#f0efed, #dfdcd6);
-  padding: 5px 20px;
+  padding: 8px 20px;
 }
 
 header div {
@@ -75,6 +75,80 @@ a {
 .info span {
   color: gray;
   margin: 10px;
+}
+
+.banner {
+  background-image: url("img/group.png"), linear-gradient(#2b5e96, #173353);
+  background-repeat: no-repeat;
+  background-position: right;
+  background-size: contain;
+  padding: 20px;
+}
+
+.banner form {
+  width: 350px;
+  border: 1px solid white;
+  background: #d4dbe3;
+}
+
+.banner div {
+  background: linear-gradient(#103a67, #2769b4);
+  color: white;
+  padding: 15px 20px;
+}
+
+.banner h1 {
+  font-weight: normal;
+  letter-spacing: 2px;
+}
+
+.banner h2 {
+  font-weight: normal;
+  font-size: 16px;
+}
+
+.banner form>*:not(div) {
+  display: block;
+  margin: 15px 25px;
+}
+
+.banner label {
+  font-weight: bold;
+}
+
+.banner input {
+  width: 200px;
+}
+
+.banner a {
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.banner form button {
+  color: white;
+  background: linear-gradient(#555555, #919191);
+  padding: 5px 15px;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 1px 1px 5px black;
+  font-size: 15px;
+}
+
+.banner form button+a {
+  margin-left: 8px;
+}
+
+.banner form+button {
+  width: 350px;
+  text-align: center;
+  border: 1px solid white;
+  padding: 15px 20px;
+  margin-top: 20px;
+  font-size: 22px;
+  letter-spacing: 2px;
+  background: linear-gradient(#103a67, #2769b4);
+  color: white;
 }
 
 #posts {
