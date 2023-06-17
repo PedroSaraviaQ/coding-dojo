@@ -59,15 +59,18 @@ input {
 .info {
   display: flex;
   list-style: none;
-  gap: 10px;
   justify-content: end;
-  color: gray;
   text-shadow: 1px 0px white;
 }
 
 .info a {
   text-decoration: none;
   color: #000;
+}
+
+.info span {
+  color: gray;
+  margin: 10px;
 }
 
 footer {
