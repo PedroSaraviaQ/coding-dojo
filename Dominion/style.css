@@ -6,7 +6,7 @@
 
 body {
   font-family: sans-serif;
-  width: 970px;
+  width: 1200px;
 }
 
 header {
@@ -39,6 +39,10 @@ header form {
   margin-right: 10px;
 }
 
+button {
+  cursor: pointer;
+}
+
 input {
   height: 25px;
   width: 180px;
@@ -52,7 +56,7 @@ input {
   border: none;
 }
 
-.info ul {
+.info {
   display: flex;
   list-style: none;
   gap: 10px;
@@ -64,5 +68,19 @@ input {
 .info a {
   text-decoration: none;
   color: #000;
-  text-shadow: 1px 1px 3px gray;
+}
+
+footer {
+  background: linear-gradient(#e6e3dd, #cfc9c0);
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 20px;
+}
+
+footer span {
+  font-weight: bold;
+}
+
+#increase {
+  color: #4ba044;
 }
