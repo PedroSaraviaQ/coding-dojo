@@ -1,8 +1,12 @@
 //Devuelve la suma de 1 a N. Por ejemplo,  Sum1toN(3) devolverá la suma de 1+2+3, la cual es 6
 //sum1toN(255) devuelve la suma de todos los números de 1 a 255
-function sum1toN(n) {}
+function sum1toN(n) {
+  return (n * (n + 1)) / 2;
+}
 //devuelve la suma del primer y último número en el array
-function sumFirstLast(arr) {}
+function sumFirstLast(arr) {
+  return arr[0] + arr[arr.length - 1];
+}
 
 describe("sum1toN", function () {
   it("should return 3 when we pass 2 as an argument", function () {
