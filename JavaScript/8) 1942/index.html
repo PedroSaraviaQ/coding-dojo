@@ -53,13 +53,8 @@
 
 <body>
   <div id='container'>
-    <div id='hero' style='top:300px; left:300px;'></div>
-    <div id='enemies'>
-      <div class='enemy1' style='top:100px; left:100px;'></div>
-      <div class='enemy1' style='top:100px; left:200px;'></div>
-      <div class='enemy1' style='top:100px; left:300px;'></div>
-      <div class='enemy1' style='top:100px; left:400px;'></div>
-    </div>
+    <div id='hero'></div>
+    <div id='enemies'></div>
     <div id='bullets'>
       <div class='bullet' style='top:150px; left:200px;'></div>
       <div class='bullet' style='top:250px; left:200px;'></div>
@@ -72,6 +67,43 @@
 
 
   <script>
+
+    var hero = {
+      x: 300,
+      y: 300
+    }
+
+    var enemies = [{ x: 50, y: 50 }, { x: 250, y: 50 }, { x: 450, y: 250 }]
+
+    function displayHero() {
+      document.getElementById('hero').style.top = hero.y + 'px';
+      document.getElementById('hero').style.left = hero.x + 'px';
+    }
+
+    function displayEnemies() {
+      var output = '';
+
+      for (var i = 0; i < enemies.length; i++) {
+        output += "<div class='enemy1' style='top:" + enemies[i].y + "px; left:" + enemies[i].x + "px;'></div>";
+      }
+      document.getElementById('enemies').innerHTML = output;
+    }
+
+    document.onkeydown = function (e) {
+      if (e.keyCode == 37) {
+        hero.x -= 10;
+      } else if (e.keyCode == 38) {
+        hero.y -= 10;
+      } else if (e.keyCode == 39) {
+        hero.x += 10;
+      } else if (e.keyCode == 40) {
+        hero.y += 10;
+      }
+      displayHero();
+    }
+
+    displayHero()
+    displayEnemies()
 
   </script>
 
