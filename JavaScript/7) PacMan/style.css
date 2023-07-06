@@ -22,14 +22,11 @@ div.coin {
 }
 
 div.cherry {
-  background: url("assets/cherry.png") no-repeat center / 18px 18px;
+  background: url("assets/cherry.png") no-repeat center / 18px;
 }
 
 div.empty {
-  color: white;
-  height: 40px;
-  width: 40px;
-  text-align: center;
+  background: url("assets/point.png") no-repeat center / 2px;
 }
 
 div#pacman {
