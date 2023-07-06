@@ -8,6 +8,11 @@
   <style>
     body {
       background-color: black;
+      margin: 0;
+    }
+
+    div.row {
+      font-size: 0;
     }
 
     div.row div {
@@ -26,8 +31,11 @@
 
     div.empty {}
 
-    div.pacman {
+    div#pacman {
       background: url("assets/pacman.gif") no-repeat center / cover;
+      height: 20px;
+      width: 20px;
+      position: absolute;
     }
   </style>
 </head>
@@ -36,10 +44,12 @@
 
   <div id="world"></div>
 
+  <div id="pacman"></div>
+
   <!--
     * Lists of features to build
     * 1) Have JS display the world of bricks, coins, .etc (done)
-    * 2) Have the pacman move around the world
+    * 2) Have the pacman move around the world (done)
   -->
 
   <script>
@@ -56,18 +66,23 @@
       [2, 2, 2, 2, 2, 2, 2, 2, 2, 2]
     ]
 
+    var pacman = {
+      x: 20,
+      y: 20
+    }
+
     function displayWorld() {
       let output = ""
 
       for (let i = 0; i < world.length; i++) {
-        output += "\n<div class='row'>"
+        output += "\n<div class='row'>\n"
         for (let j = 0; j < world[i].length; j++) {
           if (world[i][j] == 2) {
-            output += "\n\t<div class='brick'></div>"
+            output += "<div class='brick'></div>"
           } else if (world[i][j] == 1) {
-            output += "\n\t<div class='coin'></div>"
+            output += "<div class='coin'></div>"
           } else if (world[i][j] == 0) {
-            output += "\n\t<div class='empty'></div>"
+            output += "<div class='empty'></div>"
           }
         }
         output += "\n</div>"
@@ -76,7 +91,28 @@
       document.getElementById('world').innerHTML = output
     }
 
+    function displayPacman() {
+      document.getElementById('pacman').style.left = pacman.x + "px"
+      document.getElementById('pacman').style.top = pacman.y + "px"
+    }
+
     displayWorld()
+    displayPacman()
+
+    document.onkeydown = function (e) {
+      // console.log(e.keyCode)
+      if (e.keyCode == 37) {
+        pacman.x -= 20
+      } else if (e.keyCode == 38) {
+        pacman.y -= 20
+      } else if (e.keyCode == 39) {
+        pacman.x += 20
+      } else if (e.keyCode == 40) {
+        pacman.y += 20
+      }
+
+      displayPacman()
+    }
 
   </script>
 
