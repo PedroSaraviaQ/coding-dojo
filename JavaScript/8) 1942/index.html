@@ -70,10 +70,10 @@
 
     var hero = {
       x: 300,
-      y: 300
+      y: 400
     }
 
-    var enemies = [{ x: 50, y: 50 }, { x: 250, y: 50 }, { x: 450, y: 250 }]
+    var enemies = [{ x: 50, y: 50 }, { x: 250, y: 50 }, { x: 450, y: 250 }, { x: 550, y: 50 }, { x: 700, y: 100 }]
 
     function displayHero() {
       document.getElementById('hero').style.top = hero.y + 'px';
@@ -88,6 +88,20 @@
       }
       document.getElementById('enemies').innerHTML = output;
     }
+
+    function gameLoop() {
+      for (var i = 0; i < enemies.length; i++) {
+        enemies[i].y += 5;
+
+        if (enemies[i].y > 540) {
+          enemies[i].y = 0;
+          enemies[i].x = Math.random() * 700;
+        }
+      }
+      displayEnemies();
+    }
+
+    setInterval(gameLoop, 100);
 
     document.onkeydown = function (e) {
       if (e.keyCode == 37) {
