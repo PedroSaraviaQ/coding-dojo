@@ -29,6 +29,10 @@
       background: url("assets/coin.gif") no-repeat center;
     }
 
+    div.cherry {
+      background: url("assets/cherry.png") no-repeat center / 18px 18px;
+    }
+
     div.empty {}
 
     div#pacman {
@@ -65,8 +69,8 @@
       [2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
       [2, 0, 1, 2, 1, 1, 1, 1, 1, 2],
       [2, 1, 1, 2, 1, 2, 2, 2, 1, 2],
-      [2, 1, 1, 2, 1, 2, 1, 2, 1, 2],
-      [2, 1, 1, 2, 1, 2, 1, 2, 1, 2],
+      [2, 1, 1, 2, 1, 2, 3, 2, 1, 2],
+      [2, 1, 1, 2, 3, 2, 1, 2, 1, 2],
       [2, 1, 1, 2, 2, 2, 1, 2, 1, 2],
       [2, 1, 1, 1, 1, 1, 1, 2, 1, 2],
       [2, 1, 1, 1, 1, 1, 1, 1, 1, 2],
@@ -90,6 +94,8 @@
             output += "<div class='brick'></div>"
           } else if (world[i][j] == 1) {
             output += "<div class='coin'></div>"
+          } else if (world[i][j] == 3) {
+            output += "<div class='cherry'></div>"
           } else if (world[i][j] == 0) {
             output += "<div class='empty'></div>"
           }
@@ -133,14 +139,17 @@
 
       if (world[pacman.y][pacman.x] == 1) {
         world[pacman.y][pacman.x] = 0
-        displayWorld()
         score += 10
-        displayScore()
       } else if (world[pacman.y][pacman.x] == 2) {
         pacman = t
+      } else if (world[pacman.y][pacman.x] == 3) {
+        world[pacman.y][pacman.x] = 0
+        score += 50
       }
 
+      displayWorld()
       displayPacman()
+      displayScore()
     }
 
   </script>
