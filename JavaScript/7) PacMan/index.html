@@ -44,6 +44,9 @@
       width: 40px;
       text-align: center;
       padding: 10px 0;
+      position: absolute;
+      top: 30px;
+      left: 230px;
     }
   </style>
 </head>
@@ -60,7 +63,7 @@
 
     var world = [
       [2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
-      [2, 1, 1, 2, 1, 1, 1, 1, 1, 2],
+      [2, 0, 1, 2, 1, 1, 1, 1, 1, 2],
       [2, 1, 1, 2, 1, 2, 2, 2, 1, 2],
       [2, 1, 1, 2, 1, 2, 1, 2, 1, 2],
       [2, 1, 1, 2, 1, 2, 1, 2, 1, 2],
@@ -71,8 +74,8 @@
     ]
 
     var pacman = {
-      x: 0,
-      y: 0
+      x: 1,
+      y: 1
     }
 
     var score = 0
@@ -111,6 +114,8 @@
     displayScore()
 
     document.onkeydown = function (e) {
+      var t = { ...pacman }
+
       // console.log(e.keyCode)
       if (e.keyCode == 37) {
         pacman.x--
@@ -127,6 +132,8 @@
         displayWorld()
         score += 10
         displayScore()
+      } else if (world[pacman.y][pacman.x] == 2) {
+        pacman = t
       }
 
       displayPacman()
