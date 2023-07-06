@@ -119,12 +119,16 @@
       // console.log(e.keyCode)
       if (e.keyCode == 37) {
         pacman.x--
+        document.getElementById('pacman').style.transform = "rotate(-180deg)"
       } else if (e.keyCode == 38) {
         pacman.y--
+        document.getElementById('pacman').style.transform = "rotate(-90deg)"
       } else if (e.keyCode == 39) {
         pacman.x++
+        document.getElementById('pacman').style.transform = "rotate(0deg)"
       } else if (e.keyCode == 40) {
         pacman.y++
+        document.getElementById('pacman').style.transform = "rotate(90deg)"
       }
 
       if (world[pacman.y][pacman.x] == 1) {
