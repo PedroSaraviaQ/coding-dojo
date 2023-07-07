@@ -15,6 +15,8 @@ var enemies = [
 
 var bullets = [];
 
+var score = 0;
+
 function displayHero() {
   document.getElementById("hero").style.top = hero.y + "px";
   document.getElementById("hero").style.left = hero.x + "px";
@@ -36,6 +38,10 @@ function displayBullets() {
     output += "<div class='bullet' style='top:" + bullets[i].y + "px; left:" + bullets[i].x + "px;'></div>";
   }
   document.getElementById("bullets").innerHTML = output;
+}
+
+function displayScore() {
+  document.getElementById("score").innerHTML = score;
 }
 
 function moveEnemies() {
@@ -71,6 +77,8 @@ function detectCollision() {
         bullets[j] = bullets[bullets.length - 1];
         enemies.pop();
         bullets.pop();
+        score += 10;
+        displayScore();
       }
     }
   }
@@ -104,3 +112,4 @@ document.onkeydown = function (e) {
 
 displayHero();
 displayEnemies();
+displayScore();
