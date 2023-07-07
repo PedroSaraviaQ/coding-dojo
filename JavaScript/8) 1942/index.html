@@ -55,12 +55,7 @@
   <div id='container'>
     <div id='hero'></div>
     <div id='enemies'></div>
-    <div id='bullets'>
-      <div class='bullet' style='top:150px; left:200px;'></div>
-      <div class='bullet' style='top:250px; left:200px;'></div>
-      <div class='bullet' style='top:350px; left:200px;'></div>
-      <div class='bullet' style='top:450px; left:200px;'></div>
-    </div>
+    <div id='bullets'></div>
   </div>
 
   <div id='score'>100</div>
@@ -74,6 +69,8 @@
     }
 
     var enemies = [{ x: 50, y: 50 }, { x: 250, y: 50 }, { x: 450, y: 250 }, { x: 550, y: 50 }, { x: 700, y: 100 }]
+
+    var bullets = []
 
     function displayHero() {
       document.getElementById('hero').style.top = hero.y + 'px';
@@ -89,6 +86,15 @@
       document.getElementById('enemies').innerHTML = output;
     }
 
+    function displayBullets() {
+      var output = '';
+
+      for (var i = 0; i < bullets.length; i++) {
+        output += "<div class='bullet' style='top:" + bullets[i].y + "px; left:" + bullets[i].x + "px;'></div>";
+      }
+      document.getElementById('bullets').innerHTML = output;
+    }
+
     function gameLoop() {
       for (var i = 0; i < enemies.length; i++) {
         enemies[i].y += 5;
@@ -98,7 +104,18 @@
           enemies[i].x = Math.random() * 700;
         }
       }
+
+      for (var i = 0; i < bullets.length; i++) {
+        bullets[i].y -= 5;
+
+        if (bullets[i].y < 0) {
+          bullets[i] = bullets[bullets.length - 1];
+          bullets.pop();
+        }
+      }
+
       displayEnemies();
+      displayBullets();
     }
 
     setInterval(gameLoop, 100);
@@ -112,8 +129,13 @@
         hero.x += 10;
       } else if (e.keyCode == 40) {
         hero.y += 10;
+      } else if (e.keyCode == 32) {
+        bullets.push({ x: hero.x + 5.5, y: hero.y - 13 })
       }
+
+      // console.log(e.keyCode)
       displayHero();
+      displayBullets();
     }
 
     displayHero()
