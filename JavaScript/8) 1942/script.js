@@ -5,10 +5,12 @@ var hero = {
 
 var enemies = [
   { x: 50, y: 50 },
+  { x: 150, y: 150 },
   { x: 250, y: 50 },
+  { x: 350, y: 100 },
   { x: 450, y: 250 },
   { x: 550, y: 50 },
-  { x: 700, y: 100 },
+  { x: 650, y: 100 },
 ];
 
 var bullets = [];
@@ -61,9 +63,23 @@ function moveBullets() {
   displayBullets();
 }
 
+function detectCollision() {
+  for (var i = 0; i < enemies.length; i++) {
+    for (var j = 0; j < bullets.length; j++) {
+      if (Math.abs(enemies[i].x - bullets[j].x) < 15 && Math.abs(enemies[i].y - bullets[j].y) < 15) {
+        enemies[i] = enemies[enemies.length - 1];
+        bullets[j] = bullets[bullets.length - 1];
+        enemies.pop();
+        bullets.pop();
+      }
+    }
+  }
+}
+
 function gameLoop() {
   moveEnemies();
   moveBullets();
+  detectCollision();
 }
 
 setInterval(gameLoop, 50);
