@@ -28,4 +28,14 @@ select countries.name, languages.language, languages.percentage
 from countries join languages
 on countries.id = languages.country_id
 where languages.percentage > 89
-order by languages.percentage desc
+order by languages.percentage desc;
+
+-- * 5) Países con un área de superficie inferior a 501 y población mayor a 100,000
+
+select name, surface_area, population from countries
+where surface_area < 501 and population > 100000;
+
+-- * 6) Países con solo Monarquía Constitucional, un capital mayor a 200 y una esperanza de vida mayor a 75 años
+
+select name, government_form, capital, life_expectancy from countries
+where government_form = 'Constitutional Monarchy' and capital > 200 and life_expectancy > 75;
