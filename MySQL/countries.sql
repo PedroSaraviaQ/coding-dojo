@@ -3,16 +3,14 @@ use world;
 -- * 1) Países que hablan sloveno
 
 select countries.name, languages.language, languages.percentage
-from countries join languages
-on countries.id = languages.country_id
+from countries join languages on countries.id = languages.country_id
 where languages.language = 'Slovene'
 order by languages.percentage desc;
 
 -- * 2) Número de ciudades por país
 
 select countries.name, count(cities.name) as total
-from countries join cities
-on countries.id = cities.country_id
+from countries join cities on countries.id = cities.country_id
 group by countries.name
 order by total desc;
 
@@ -25,8 +23,7 @@ order by population desc;
 -- * 4) Idiomas en países con un porcentaje mayor al 89%
 
 select countries.name, languages.language, languages.percentage
-from countries join languages
-on countries.id = languages.country_id
+from countries join languages on countries.id = languages.country_id
 where languages.percentage > 89
 order by languages.percentage desc;
 
@@ -39,3 +36,15 @@ where surface_area < 501 and population > 100000;
 
 select name, government_form, capital, life_expectancy from countries
 where government_form = 'Constitutional Monarchy' and capital > 200 and life_expectancy > 75;
+
+-- * 7) Ciudades de Argentina dentro del distrito de Buenos Aires y con una población mayor a 500,000 habitantes
+
+select countries.name, cities.name, cities.district, cities.population
+from countries join cities on countries.id = cities.country_id
+where countries.name = 'Argentina' and cities.district = 'Buenos Aires' and cities.population > 500000;
+
+-- * 8) Número de países por región
+
+select region, count(name) as total from countries
+group by region
+order by total desc;
