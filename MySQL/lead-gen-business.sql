@@ -43,7 +43,8 @@ select clients.first_name, clients.last_name, count(*) as total_leads
 from clients join sites on clients.client_id = sites.client_id
 join leads on sites.site_id = leads.site_id
 where leads.registered_datetime >= "2011/01/01" and leads.registered_datetime <= "2011/12/31"
-group by clients.client_id;
+group by clients.client_id
+order by clients.client_id;
 
 -- * 7) Lista de usuarios generados por cliente por mes en el primer semestre del año 2011
 
@@ -53,3 +54,31 @@ from clients join sites on clients.client_id = sites.client_id
 join leads on sites.site_id = leads.site_id
 where year(leads.registered_datetime) = 2011 and month(leads.registered_datetime) between 1 and 6
 group by month, year, clients.client_id;
+
+-- * 8) Lista de usuarios generados por cliente por sitio en el año 2011 (y en general)
+
+select clients.first_name, clients.last_name, sites.domain_name, count(*) as total
+from clients join sites on clients.client_id = sites.client_id
+join leads on sites.site_id = leads.site_id
+where year(leads.registered_datetime) = 2011
+group by clients.client_id, sites.site_id
+order by clients.client_id;
+select clients.first_name, clients.last_name, sites.domain_name, count(*) as total
+from clients left join sites on clients.client_id = sites.client_id
+left join leads on sites.site_id = leads.site_id
+group by clients.client_id, sites.site_id
+order by clients.client_id;
+
+-- * 9) Lista de ingresos totales por cliente por mes por año
+
+select clients.first_name, clients.last_name, sum(billing.amount),
+monthname(billing.charged_datetime) as month, year(billing.charged_datetime) as year
+from clients join billing on clients.client_id = billing.client_id
+group by month, year, clients.client_id
+order by clients.client_id;
+
+-- * 10) Lista de sitios por cliente
+
+select clients.first_name, clients.last_name, group_concat(sites.domain_name)
+from clients left join sites on clients.client_id = sites.client_id
+group by clients.client_id;
