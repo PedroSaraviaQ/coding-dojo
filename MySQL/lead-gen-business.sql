@@ -29,3 +29,27 @@ year(sites.created_datetime) as year, monthname(sites.created_datetime) as month
 from sites join clients on sites.client_id = clients.client_id
 where clients.client_id = 20
 group by year, month;
+
+-- * 5) Lista de usuarios generados por sitio entre el 1 de enero de 2011 y el 15 de febrero de 2011
+
+select count(*) as total_leads, sites.domain_name
+from leads join sites on leads.site_id = sites.site_id
+where leads.registered_datetime >= "2011/01/01" and leads.registered_datetime <= "2011/02/15"
+group by sites.domain_name;
+
+-- * 6) Lista de usuarios generados por cliente en el año 2011
+
+select clients.first_name, clients.last_name, count(*) as total_leads
+from clients join sites on clients.client_id = sites.client_id
+join leads on sites.site_id = leads.site_id
+where leads.registered_datetime >= "2011/01/01" and leads.registered_datetime <= "2011/12/31"
+group by clients.client_id;
+
+-- * 7) Lista de usuarios generados por cliente por mes en el primer semestre del año 2011
+
+select clients.first_name, clients.last_name, count(*) as total_leads,
+monthname(leads.registered_datetime) as month, year(leads.registered_datetime) as year
+from clients join sites on clients.client_id = sites.client_id
+join leads on sites.site_id = leads.site_id
+where year(leads.registered_datetime) = 2011 and month(leads.registered_datetime) between 1 and 6
+group by month, year, clients.client_id;
