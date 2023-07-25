@@ -7,6 +7,10 @@ public class PuzzleJava {
         System.out.println(problem1());
         System.out.println(problem2());
         problem3();
+        System.out.println(problem4());
+        problem5();
+        System.out.println(problem6());
+        System.out.println(problem7());
     }
 
     static ArrayList<Integer> problem1() {
@@ -64,5 +68,41 @@ public class PuzzleJava {
         if ("AEIOU".contains(String.valueOf(firstLetter))) {
             System.out.println("It's a vowel!");
         }
+    }
+
+    static ArrayList<Integer> problem4() {
+        ArrayList<Integer> nums = new ArrayList<Integer>();
+        Random r = new Random();
+        for (int i = 0; i < 10; i++) {
+            nums.add(55 + r.nextInt(46));
+        }
+        return nums;
+    }
+
+    static void problem5() {
+        ArrayList<Integer> nums = problem4();
+        Collections.sort(nums);
+        System.out.println(nums);
+        System.out.println("Minimo: " + nums.get(0));
+        System.out.println("Maximo: " + nums.get(9));
+    }
+
+    static String problem6() {
+        String string = "";
+        Random r = new Random();
+        for (int i = 0; i < 5; i++) {
+            int random = r.nextInt(26);
+            char letter = (char) ('a' + random);
+            string += String.valueOf(letter);
+        }
+        return string;
+    }
+
+    static ArrayList<String> problem7() {
+        ArrayList<String> strings = new ArrayList<String>();
+        for (int i = 0; i < 10; i++) {
+            strings.add(problem6());
+        }
+        return strings;
     }
 }
