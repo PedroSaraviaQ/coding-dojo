@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<menu>
+    <breakfastMenu>
+        <item category="entradas">
+            <name>Panqueques</name>
+            <description>Una porción de panqueques</description>
+            <price>$7.99</price>
+        </item>
+        <item category="bebidas">
+            <name>Café</name>
+            <description>Una taza de café</description>
+            <price>$2.99</price>
+        </item>
+    </breakfastMenu>
+    <lunchMenu>
+        <item category="entradas">
+            <name>Ensalada con Pollo</name>
+            <description>Una ensalada con pollo.</description>
+            <price>$10.99</price>
+        </item>
+        <item category="entradas">
+            <name>Sánduche de Pollo</name>
+            <description>Un sánduche de pollo.</description>
+            <price>$12.99</price>
+        </item>
+        <item category="entradas">
+            <name>Sánduche de Pastrami</name>
+            <description>Un sánduche hecho con pastrami.</description>
+            <price>$13.99</price>
+        </item>
+        <item category="bebidas">
+            <name>Coca-Cola</name>
+            <description>Una gaseosa.</description>
+            <price>$0.99</price>
+        </item>
+        <item category="bebidas">
+            <name>Jugo de Naranja</name>
+            <description>Un jugo hecho con naranjas.</description>
+            <price>$0.99</price>
+        </item>
+    </lunchMenu>
+    <dinnerMenu>
+        <item category="entradas">
+            <name>Cereal con leche</name>
+            <description>Un plato de cereal con leche</description>
+            <price>$6.99</price>
+        </item>
+    </dinnerMenu>
+</menu>
