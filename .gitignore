@@ -8,4 +8,4 @@ out
 target/
 build/
 .gradle/
-*.properties
+**/src/main/resources/application.properties
