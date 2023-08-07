@@ -1,5 +1,15 @@
+package com.zookeper.mammal;
+
 public class Mammal {
-    private int energyLevel = 100;
+    private int energyLevel;
+
+    public Mammal() {
+        this(100);
+    }
+
+    public Mammal(int energy) {
+        energyLevel = energy;
+    }
 
     public int getEnergyLevel() {
         return energyLevel;
