@@ -39,6 +39,6 @@ public class Human {
     }
 
     public void attack(Human human) {
-        human.setHealth(human.getHealth() - this.getStrength());
+        human.health -= this.strength;
     }
 }
