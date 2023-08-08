@@ -20,10 +20,11 @@ public class Calculator implements java.io.Serializable {
     }
 
     public void performOperation() {
-        if (operation.equals("+")) {
-            result = operandOne + operandTwo;
-        } else if (operation.equals("-")) {
-            result = operandOne - operandTwo;
+        switch (operation) {
+            case "+" -> result = operandOne + operandTwo;
+            case "-" -> result = operandOne - operandTwo;
+            case "*" -> result = operandOne * operandTwo;
+            case "/" -> result = operandOne / operandTwo;
         }
     }
 

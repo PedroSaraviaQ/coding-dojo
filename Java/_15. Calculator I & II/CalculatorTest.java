@@ -8,5 +8,11 @@ public class CalculatorTest {
 
         calculator.performOperation();
         System.out.println(calculator.getResult());
+
+        calculator.setOperandOne(10);
+        calculator.setOperation("*");
+
+        calculator.performOperation();
+        System.out.println(calculator.getResult());
     }
 }
