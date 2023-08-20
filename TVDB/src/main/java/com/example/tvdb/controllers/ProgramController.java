@@ -90,12 +90,18 @@ public class ProgramController {
     public String giveRating(@PathVariable Long id, @RequestParam Double rating, HttpSession session) {
         User user = userService.findByEmail(((User) session.getAttribute("currentUser")).getEmail());
         Program program = programService.findById(id);
-        Review review = new Review();
+        Review existingReview = reviewService.findByUserAndProgram(user, program);
 
-        review.setRating(rating);
-        review.setUser(user);
-        review.setProgram(program);
-        reviewService.save(review);
+        if (existingReview == null) {
+            Review newReview = new Review();
+            newReview.setRating(rating);
+            newReview.setUser(user);
+            newReview.setProgram(program);
+            reviewService.save(newReview);
+        } else {
+            existingReview.setRating(rating);
+            reviewService.save(existingReview);
+        }
         return "redirect:/programas/" + id;
     }
 
