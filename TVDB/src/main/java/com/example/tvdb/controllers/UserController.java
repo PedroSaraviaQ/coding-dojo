@@ -9,7 +9,6 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.List;
 
@@ -25,7 +24,7 @@ public class UserController {
     public String index(Model model, @ModelAttribute User user) {
         List<User> users = userService.findAll();
         model.addAttribute("users", users);
-        return "index.jsp";
+        return "home.jsp";
     }
 
     @PostMapping("/")
@@ -35,7 +34,7 @@ public class UserController {
             model.addAttribute("matchError", "Las contraseñas no coinciden");
         }
         if (result.hasErrors() || matchError) {
-            return "index.jsp";
+            return "home.jsp";
         }
         userService.save(user);
         return "redirect:/";
