@@ -20,7 +20,7 @@
             <tr>
                 <th>Programa</th>
                 <th>Red</th>
-                <th>Descripción</th>
+                <th>Promedio de Calificaciones</th>
             </tr>
             </thead>
             <tbody>
@@ -28,7 +28,7 @@
                 <tr>
                     <td><a href="/programas/${program.id}">${program.title}</a></td>
                     <td>${program.network}</td>
-                    <td>${program.description}</td>
+                    <td>${program.rating}</td>
                 </tr>
             </c:forEach>
             </tbody>

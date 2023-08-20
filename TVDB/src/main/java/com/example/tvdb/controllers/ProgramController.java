@@ -28,12 +28,27 @@ public class ProgramController {
         this.reviewService = reviewService;
     }
 
+    private Double calculateAverageRating(List<Review> reviews) {
+        Double sum = 0.0;
+        for (Review review : reviews) {
+            sum += review.getRating();
+        }
+        return sum / reviews.size();
+    }
+
     @GetMapping("")
     public String showPrograms(Model model, HttpSession session) {
         if (session.getAttribute("currentUser") == null) {
             return "redirect:/";
         }
         List<Program> programs = programService.findAll();
+        for (Program program : programs) {
+            if (program.getReviews().isEmpty()) {
+                program.setRating(0.0);
+            } else {
+                program.setRating(calculateAverageRating(program.getReviews()));
+            }
+        }
         model.addAttribute("programs", programs);
         return "allPrograms.jsp";
     }
