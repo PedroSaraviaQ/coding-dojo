@@ -1,5 +1,6 @@
 package com.example.tvdb.models;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
@@ -21,6 +22,7 @@ public class User extends BaseModel {
 
     @NotBlank(message = "El email es obligatorio")
     @Email(message = "El email debe ser válido")
+    @Column(unique = true)
     private String email;
 
     @NotBlank(message = "La contraseña es obligatoria")

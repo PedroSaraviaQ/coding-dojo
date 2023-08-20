@@ -29,11 +29,16 @@ public class UserController {
 
     @PostMapping("/")
     public String create(@Valid @ModelAttribute User user, BindingResult result, Model model) {
+        boolean uniqueEmail = userService.existsByEmail(user.getEmail());
         boolean matchError = !user.getPassword().equals(user.getPasswordConfirmation());
+
+        if (uniqueEmail) {
+            model.addAttribute("uniqueEmail", "El email ya existe");
+        }
         if (matchError) {
             model.addAttribute("matchError", "Las contraseñas no coinciden");
         }
-        if (result.hasErrors() || matchError) {
+        if (result.hasErrors() || matchError || uniqueEmail) {
             return "home.jsp";
         }
         userService.save(user);

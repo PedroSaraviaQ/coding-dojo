@@ -13,4 +13,8 @@ public class UserService extends BaseService<User> {
         super(repository);
         this.repository = (UserRepository) repository;
     }
+
+    public boolean existsByEmail(String email) {
+        return repository.existsByEmail(email);
+    }
 }

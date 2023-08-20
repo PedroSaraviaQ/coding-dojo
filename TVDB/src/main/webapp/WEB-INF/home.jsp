@@ -22,6 +22,7 @@
                 <form:label path="email">Email:</form:label>
                 <form:input type="email" path="email"/>
                 <form:errors cssClass="error" path="email"/>
+                <span class="error"><c:out value="${uniqueEmail}"/></span>
             </p>
             <p>
                 <form:label path="password">Contraseña:</form:label>
