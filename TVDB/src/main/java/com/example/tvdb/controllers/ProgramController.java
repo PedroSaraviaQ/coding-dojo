@@ -30,8 +30,12 @@ public class ProgramController {
     }
 
     @PostMapping("/nuevo")
-    public String createProgram(@Valid @ModelAttribute Program program, BindingResult result) {
-        if (result.hasErrors()) {
+    public String createProgram(@Valid @ModelAttribute Program program, BindingResult result, Model model) {
+        boolean matchError = programService.existsByTitle(program.getTitle());
+        if (matchError) {
+            model.addAttribute("matchError", "El título ya existe");
+        }
+        if (result.hasErrors() || matchError) {
             return "newProgram.jsp";
         }
         programService.save(program);

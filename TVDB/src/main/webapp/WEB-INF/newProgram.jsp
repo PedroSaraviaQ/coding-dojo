@@ -16,6 +16,7 @@
                 <form:label path="title">Título:</form:label>
                 <form:input type="text" path="title"/>
                 <form:errors cssClass="error" path="title"/>
+                <span class="error"><c:out value="${matchError}"/></span>
             </p>
             <p>
                 <form:label path="network">Red:</form:label>
@@ -29,6 +30,5 @@
             </p>
             <button>Enviar</button>
         </form:form>
-
     </body>
 </html>

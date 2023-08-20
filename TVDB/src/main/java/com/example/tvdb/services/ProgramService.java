@@ -13,4 +13,8 @@ public class ProgramService extends BaseService<Program> {
         super(repository);
         this.repository = (ProgramRepository) repository;
     }
+
+    public boolean existsByTitle(String title) {
+        return repository.existsByTitle(title);
+    }
 }
