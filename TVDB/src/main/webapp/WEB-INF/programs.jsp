@@ -26,7 +26,7 @@
             <tbody>
             <c:forEach items="${programs}" var="program">
                 <tr>
-                    <td>${program.title}</td>
+                    <td><a href="/programas/${program.id}">${program.title}</a></td>
                     <td>${program.network}</td>
                     <td>${program.description}</td>
                 </tr>

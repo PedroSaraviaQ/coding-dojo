@@ -17,4 +17,8 @@ public class ProgramService extends BaseService<Program> {
     public boolean existsByTitle(String title) {
         return repository.existsByTitle(title);
     }
+
+    public void deleteById(Long id) {
+        repository.deleteById(id);
+    }
 }

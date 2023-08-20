@@ -7,10 +7,7 @@ import jakarta.validation.Valid;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -51,6 +48,45 @@ public class ProgramController {
             return "newProgram.jsp";
         }
         programService.save(program);
+        return "redirect:/programas";
+    }
+
+    @GetMapping("/{id}")
+    public String showProgram(@PathVariable Long id, Model model, HttpSession session) {
+        if (session.getAttribute("currentUser") == null) {
+            return "redirect:/";
+        }
+        Program program = programService.findById(id);
+        model.addAttribute("program", program);
+        return "program.jsp";
+    }
+
+    @GetMapping("/{id}/editar")
+    public String editProgram(@PathVariable Long id, Model model, HttpSession session) {
+        if (session.getAttribute("currentUser") == null) {
+            return "redirect:/";
+        }
+        Program programToEdit = programService.findById(id);
+        model.addAttribute("program", programToEdit);
+        return "editProgram.jsp";
+    }
+
+    @PutMapping("/{id}/editar")
+    public String updateProgram(@Valid @ModelAttribute Program program, BindingResult result, Model model) {
+        boolean matchError = programService.existsByTitle(program.getTitle());
+        if (matchError) {
+            model.addAttribute("matchError", "El título ya existe");
+        }
+        if (result.hasErrors() || matchError) {
+            return "editProgram.jsp";
+        }
+        programService.save(program);
+        return "redirect:/programas";
+    }
+
+    @DeleteMapping("/{id}/eliminar")
+    public String deleteProgram(@PathVariable Long id) {
+        programService.deleteById(id);
         return "redirect:/programas";
     }
 }
