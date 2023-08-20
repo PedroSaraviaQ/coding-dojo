@@ -5,6 +5,8 @@ import com.example.tvdb.repositories.BaseRepository;
 import com.example.tvdb.repositories.UserRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 public class UserService extends BaseService<User> {
     private final UserRepository repository;
@@ -16,5 +18,14 @@ public class UserService extends BaseService<User> {
 
     public boolean existsByEmail(String email) {
         return repository.existsByEmail(email);
+    }
+
+    public User findByEmail(String email) {
+        Optional<User> user = repository.findByEmail(email);
+        if (user.isPresent()) {
+            return user.get();
+        } else {
+            return null;
+        }
     }
 }

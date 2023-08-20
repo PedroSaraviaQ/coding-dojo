@@ -9,6 +9,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
@@ -43,5 +44,24 @@ public class UserController {
         }
         userService.save(user);
         return "redirect:/";
+    }
+
+    @PostMapping("/login")
+    public String login(@RequestParam String myEmail, @RequestParam String myPassword, Model model, @ModelAttribute User user) {
+        User myUser = userService.findByEmail(myEmail);
+
+        if (myUser == null) {
+            model.addAttribute("userError", "El usuario no existe");
+            model.addAttribute("myEmail", myEmail);
+            model.addAttribute("myPassword", myPassword);
+            return "home.jsp";
+        }
+        if (!myUser.getPassword().equals(myPassword)) {
+            model.addAttribute("passwordError", "La contraseña es incorrecta");
+            model.addAttribute("myEmail", myEmail);
+            model.addAttribute("myPassword", myPassword);
+            return "home.jsp";
+        }
+        return "redirect:/programas";
     }
 }

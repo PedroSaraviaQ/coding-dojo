@@ -37,5 +37,20 @@
             </p>
             <button>Registrarte</button>
         </form:form>
+
+        <form action="/login" method="post">
+            <h2>Iniciar Sesión</h2>
+            <p>
+                <label for="email">Email:</label>
+                <input type="email" name="myEmail" id="email" value="${myEmail}"/>
+                <span class="error"><c:out value="${userError}"/></span>
+            </p>
+            <p>
+                <label for="password">Contraseña:</label>
+                <input type="password" name="myPassword" id="password" value="${myPassword}"/>
+                <span class="error"><c:out value="${passwordError}"/></span>
+            </p>
+            <button>Iniciar Sesión</button>
+        </form>
     </body>
 </html>
