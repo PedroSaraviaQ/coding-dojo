@@ -27,7 +27,7 @@ public class ProgramController {
         }
         List<Program> programs = programService.findAll();
         model.addAttribute("programs", programs);
-        return "programs.jsp";
+        return "allPrograms.jsp";
     }
 
     @GetMapping("/nuevo")
@@ -58,7 +58,7 @@ public class ProgramController {
         }
         Program program = programService.findById(id);
         model.addAttribute("program", program);
-        return "program.jsp";
+        return "showProgram.jsp";
     }
 
     @GetMapping("/{id}/editar")
