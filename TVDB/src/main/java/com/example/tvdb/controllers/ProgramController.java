@@ -13,6 +13,8 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 @Controller
@@ -81,6 +83,8 @@ public class ProgramController {
         }
         Program program = programService.findById(id);
         List<Review> reviews = reviewService.findAllByProgram_Id(id);
+        Collections.sort(reviews, Comparator.comparing(Review::getRating).reversed());
+
         model.addAttribute("program", program);
         model.addAttribute("reviews", reviews);
         return "showProgram.jsp";
