@@ -22,10 +22,15 @@ public class ProgramController {
         this.programService = programService;
     }
 
-    @GetMapping("/nuevo")
-    public String newProgram(Model model, @ModelAttribute Program program) {
+    @GetMapping("")
+    public String showPrograms(Model model) {
         List<Program> programs = programService.findAll();
         model.addAttribute("programs", programs);
+        return "programs.jsp";
+    }
+
+    @GetMapping("/nuevo")
+    public String newProgram(@ModelAttribute Program program) {
         return "newProgram.jsp";
     }
 
@@ -39,6 +44,6 @@ public class ProgramController {
             return "newProgram.jsp";
         }
         programService.save(program);
-        return "redirect:/programas/nuevo";
+        return "redirect:/programas";
     }
 }
