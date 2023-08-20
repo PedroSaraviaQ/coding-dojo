@@ -4,12 +4,11 @@ import com.example.tvdb.models.User;
 import com.example.tvdb.services.UserService;
 import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
+import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 @Controller
 public class UserController {
@@ -25,7 +24,7 @@ public class UserController {
     }
 
     @PostMapping("/")
-    public String create(@Valid @ModelAttribute User user, BindingResult result, Model model) {
+    public String create(@Valid @ModelAttribute User user, BindingResult result, Model model, HttpSession session) {
         boolean uniqueEmail = userService.existsByEmail(user.getEmail());
         boolean matchError = !user.getPassword().equals(user.getPasswordConfirmation());
 
@@ -38,8 +37,12 @@ public class UserController {
         if (result.hasErrors() || matchError || uniqueEmail) {
             return "home.jsp";
         }
+
+        String hashedPassword = BCrypt.hashpw(user.getPassword(), BCrypt.gensalt());
+        user.setPassword(hashedPassword);
         userService.save(user);
-        return "redirect:/";
+        session.setAttribute("currentUser", user);
+        return "redirect:/programas";
     }
 
     @PostMapping("/login")
@@ -53,7 +56,7 @@ public class UserController {
             model.addAttribute("myPassword", myPassword);
             return "home.jsp";
         }
-        if (!myUser.getPassword().equals(myPassword)) {
+        if (!BCrypt.checkpw(myPassword, myUser.getPassword())) {
             model.addAttribute("passwordError", "La contraseña es incorrecta");
             model.addAttribute("myEmail", myEmail);
             model.addAttribute("myPassword", myPassword);
