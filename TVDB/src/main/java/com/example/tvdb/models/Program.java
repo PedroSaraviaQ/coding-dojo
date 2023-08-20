@@ -26,4 +26,7 @@ public class Program extends BaseModel {
 
     @OneToMany(mappedBy = "program", fetch = FetchType.LAZY)
     private List<Review> reviews;
+
+    @Transient
+    private Double rating;
 }

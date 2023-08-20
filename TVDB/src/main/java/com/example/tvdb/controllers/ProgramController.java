@@ -1,7 +1,11 @@
 package com.example.tvdb.controllers;
 
 import com.example.tvdb.models.Program;
+import com.example.tvdb.models.Review;
+import com.example.tvdb.models.User;
 import com.example.tvdb.services.ProgramService;
+import com.example.tvdb.services.ReviewService;
+import com.example.tvdb.services.UserService;
 import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
 import org.springframework.stereotype.Controller;
@@ -14,10 +18,14 @@ import java.util.List;
 @Controller
 @RequestMapping("/programas")
 public class ProgramController {
+    private final UserService userService;
     private final ProgramService programService;
+    private final ReviewService reviewService;
 
-    public ProgramController(ProgramService programService) {
+    public ProgramController(UserService userService, ProgramService programService, ReviewService reviewService) {
+        this.userService = userService;
         this.programService = programService;
+        this.reviewService = reviewService;
     }
 
     @GetMapping("")
@@ -57,8 +65,23 @@ public class ProgramController {
             return "redirect:/";
         }
         Program program = programService.findById(id);
+        List<Review> reviews = reviewService.findAllByProgram_Id(id);
         model.addAttribute("program", program);
+        model.addAttribute("reviews", reviews);
         return "showProgram.jsp";
+    }
+
+    @PostMapping("/{id}/rating")
+    public String giveRating(@PathVariable Long id, @RequestParam Double rating, HttpSession session) {
+        User user = userService.findByEmail(((User) session.getAttribute("currentUser")).getEmail());
+        Program program = programService.findById(id);
+        Review review = new Review();
+
+        review.setRating(rating);
+        review.setUser(user);
+        review.setProgram(program);
+        reviewService.save(review);
+        return "redirect:/programas/" + id;
     }
 
     @GetMapping("/{id}/editar")
