@@ -2,14 +2,12 @@ package com.example.tvdb.controllers;
 
 import com.example.tvdb.models.User;
 import com.example.tvdb.services.UserService;
+import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -22,9 +20,7 @@ public class UserController {
     }
 
     @GetMapping("/")
-    public String index(Model model, @ModelAttribute User user) {
-        List<User> users = userService.findAll();
-        model.addAttribute("users", users);
+    public String index(@ModelAttribute User user) {
         return "home.jsp";
     }
 
@@ -47,7 +43,8 @@ public class UserController {
     }
 
     @PostMapping("/login")
-    public String login(@RequestParam String myEmail, @RequestParam String myPassword, Model model, @ModelAttribute User user) {
+    public String login(@RequestParam String myEmail, @RequestParam String myPassword, Model model,
+                        @ModelAttribute User user, HttpSession session) {
         User myUser = userService.findByEmail(myEmail);
 
         if (myUser == null) {
@@ -62,6 +59,14 @@ public class UserController {
             model.addAttribute("myPassword", myPassword);
             return "home.jsp";
         }
+
+        session.setAttribute("currentUser", myUser);
         return "redirect:/programas";
+    }
+
+    @PostMapping("/logout")
+    public String logout(HttpSession session) {
+        session.removeAttribute("currentUser");
+        return "redirect:/";
     }
 }

@@ -2,6 +2,7 @@ package com.example.tvdb.controllers;
 
 import com.example.tvdb.models.Program;
 import com.example.tvdb.services.ProgramService;
+import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -23,14 +24,20 @@ public class ProgramController {
     }
 
     @GetMapping("")
-    public String showPrograms(Model model) {
+    public String showPrograms(Model model, HttpSession session) {
+        if (session.getAttribute("currentUser") == null) {
+            return "redirect:/";
+        }
         List<Program> programs = programService.findAll();
         model.addAttribute("programs", programs);
         return "programs.jsp";
     }
 
     @GetMapping("/nuevo")
-    public String newProgram(@ModelAttribute Program program) {
+    public String newProgram(@ModelAttribute Program program, HttpSession session) {
+        if (session.getAttribute("currentUser") == null) {
+            return "redirect:/";
+        }
         return "newProgram.jsp";
     }
 

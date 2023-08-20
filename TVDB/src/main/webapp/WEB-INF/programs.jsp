@@ -7,8 +7,13 @@
         <title>TVDB</title>
     </head>
     <body>
-        <h1>Bienvenidos, ____!</h1>
-        <h1>Programas</h1>
+        <h1>Bienvenidos, <c:out value="${currentUser.name}"/>!</h1>
+
+        <form action="/logout" method="post">
+            <button>Cerrar sesión</button>
+        </form>
+
+        <h2>Programas</h2>
 
         <table>
             <thead>
