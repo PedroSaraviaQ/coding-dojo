@@ -1,0 +1,25 @@
+table {
+    border-collapse: collapse;
+    width: 40%;
+}
+
+th, td {
+    border: 1px solid black;
+    padding: 8px;
+    text-align: left;
+}
+
+.delete-form {
+    display: inline;
+}
+
+.anchor-button {
+    background: none;
+    color: blue;
+    border: none;
+    padding: 0;
+    text-decoration: underline;
+    cursor: pointer;
+    font-size: inherit;
+    font-family: inherit;
+}
