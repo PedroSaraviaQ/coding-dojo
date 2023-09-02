@@ -13,22 +13,22 @@
             <input type="hidden" name="_method" value="put">
             <p>
                 <form:label path="title">Name</form:label>
-                <form:input path="title" type="text" value="${book.title}"/>
+                <form:input path="title" type="text"/>
                 <form:errors path="title"/>
             </p>
             <p>
                 <form:label path="description">Description</form:label>
-                <form:input path="description" type="text" value="${book.description}"/>
+                <form:input path="description" type="text"/>
                 <form:errors path="description"/>
             </p>
             <p>
                 <form:label path="language">Language</form:label>
-                <form:input path="language" type="text" value="${book.language}"/>
+                <form:input path="language" type="text"/>
                 <form:errors path="language"/>
             </p>
             <p>
                 <form:label path="numberOfPages">Number of Pages</form:label>
-                <form:input path="numberOfPages" type="number" value="${book.numberOfPages}"/>
+                <form:input path="numberOfPages" type="number"/>
                 <form:errors path="numberOfPages"/>
             </p>
             <button>Submit</button>
