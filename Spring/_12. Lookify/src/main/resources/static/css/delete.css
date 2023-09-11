@@ -1,0 +1,23 @@
+.button-as-link {
+    background: none;
+    border: none;
+    padding: 0;
+    color: blue;
+    text-decoration: underline;
+    cursor: pointer;
+    font-size: inherit;
+}
+
+.button-as-link:hover {
+    color: darkblue;
+    text-decoration: none;
+}
+
+.button-as-link:active {
+    color: darkerblue;
+}
+
+.button-as-link:focus {
+    outline: none;
+    box-shadow: none;
+}
