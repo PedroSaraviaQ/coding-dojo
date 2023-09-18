@@ -10,6 +10,7 @@
         <p>
             <a href="/students/new">New Student</a>
             <a href="/contacts/new">New Contact</a>
+            <a href="/dorms">View dorms</a>
         </p>
         
         <table>

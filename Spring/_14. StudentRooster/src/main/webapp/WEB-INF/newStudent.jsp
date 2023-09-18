@@ -9,6 +9,7 @@
     <body>
         <h2>New Student</h2>
         <a href="/students">View students</a>
+        <a href="/dorms">View dorms</a>
         
         <form:form method="post" modelAttribute="student">
             <p>
@@ -23,7 +24,7 @@
             </p>
             <p>
                 <form:label path="age">Age:</form:label>
-                <form:input path="age"/>
+                <form:input path="age" type="number"/>
                 <form:errors path="age"/>
             </p>
             <button>Create</button>

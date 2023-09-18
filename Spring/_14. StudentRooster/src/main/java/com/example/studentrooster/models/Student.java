@@ -21,4 +21,8 @@ public class Student extends BaseModel {
     
     @OneToOne(mappedBy = "student", fetch = FetchType.LAZY)
     private Contact contact;
+    
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "dorm_id")
+    private Dorm dorm;
 }
